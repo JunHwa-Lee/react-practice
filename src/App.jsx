@@ -1,10 +1,9 @@
-import Post from "./components/Post"; // 확장자를 붙이지 않는다.
+import PostsList from "./components/PostsList";
 
 function App() {
   return (
     <main>
-      <Post author="Maximilian" body="React.js is awesome" />
-      <Post author="Manuel" body="Check out the full course!" />
+      <PostsList />
     </main>
   );
 }
