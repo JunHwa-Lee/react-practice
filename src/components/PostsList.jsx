@@ -1,13 +1,28 @@
+import { useState } from "react";
 import NewPost from "./NewPost";
 import Post from "./Post";
 import classes from "./PostsList.module.css";
 
 function PostsList() {
+  const [enteredBody, setEnteredBody] = useState(""); // 이 값은 아래에 enteredBody 객체에 전달되도록 된다.
+  const [enteredAuthor, setEnteredAuthor] = useState("");
+
+  function bodyChangeHandler(event) {
+    setEnteredBody(event.target.value);
+  }
+
+  function authorChangeHandler(event) {
+    setEnteredAuthor(event.target.value);
+  }
+
   return (
     <>
-      <NewPost />
+      <NewPost
+        onBodyChange={bodyChangeHandler}
+        onAuthorChange={authorChangeHandler}
+      />
       <ul className={classes.posts}>
-        <Post author="Maximilian" body="React.js is awesome" />
+        <Post author={enteredAuthor} body={enteredBody} />
         <Post author="Manuel" body="Check out the full course!" />
       </ul>
     </>
